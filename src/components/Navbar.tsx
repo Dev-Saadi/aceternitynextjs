@@ -2,7 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { MenuIcon, XIcon, ChevronDown, CircleFadingPlus } from "lucide-react";
+import {
+  MenuIcon,
+  XIcon,
+  ChevronDown,
+  CircleFadingPlus,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -116,12 +122,20 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/Loginpage">
-            <button className="flex items-center gap-2 rounded-lg shadow bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:text-black  hover:bg-gray-300 transition">
-              <CircleFadingPlus size={18} />
-              Login
-            </button>
-          </Link>
+          <div className="flex gap-2">
+            <Link href="/Loginpage">
+              <button className="flex items-center gap-2 rounded-lg shadow bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:text-black  hover:bg-gray-300 transition">
+                <User size={18} />
+                Login
+              </button>
+            </Link>
+            <Link href="#">
+              <button className="flex items-center gap-2 rounded-lg shadow bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:text-black  hover:bg-gray-300 transition">
+                <CircleFadingPlus size={18} />
+                BTCL
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 

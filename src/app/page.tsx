@@ -20,6 +20,7 @@ export default function HomePage() {
       <PricingRange />
       <Blog />
       <FAQSection />
+
       <Footer />
     </>
   );

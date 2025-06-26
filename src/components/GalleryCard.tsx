@@ -122,12 +122,22 @@ import { Home, Building2, Store } from "lucide-react"; // Lucide icons
 
 const solutions = [
   {
+    title: "Enterprise Network",
+    description:
+      "Power your enterprise with high-speed, secure internet and 24/7 expert support—ensuring seamless operations, maximum uptime, and the dependable connectivity your business needs to innovate, scale, and stay ahead.",
+    imageUrl: "/images/img2.jpg",
+    alt: "Enterprise",
+    isFeatured: false,
+    link: "/with-sidebar/enterprise",
+    icon: <Building2 size={18} className="mr-2 text-indigo-600" />,
+  },
+  {
     title: "Home Internet",
     description:
       "Upgrade your home with ultra-fast, reliable internet for seamless streaming, gaming, and everyday connectivity.",
     imageUrl: "/images/home17.jpg",
     alt: "home",
-    isFeatured: false,
+    isFeatured: true,
     link: "/with-sidebar/homeinternet",
     icon: <Home size={18} className="mr-2 text-green-600" />,
   },
@@ -137,19 +147,9 @@ const solutions = [
       "Empower your small business with fast, reliable internet. Stay connected, enhance productivity, and drive growth with uninterrupted service that supports your vision every step of the way.",
     imageUrl: "/images/img3.jpg",
     alt: "Velocity Business Growth Internet",
-    isFeatured: true,
+    isFeatured: false,
     link: "/with-sidebar/small-business",
     icon: <Store size={18} className="mr-2 text-red-600" />,
-  },
-  {
-    title: "Enterprise Network",
-    description:
-      "Power your enterprise with high-speed, secure internet and 24/7 expert support—ensuring seamless operations, maximum uptime, and the dependable connectivity your business needs to innovate, scale, and stay ahead.",
-    imageUrl: "/images/img2.jpg",
-    alt: "Enterprise",
-    isFeatured: false,
-    link: "/with-sidebar/enterprise",
-    icon: <Building2 size={18} className="mr-2 text-indigo-600" />,
   },
 ];
 
@@ -206,10 +206,10 @@ const GalleryCard: React.FC = () => {
                 whileHover="hover"
                 className={`rounded-lg overflow-hidden shadow-xl transition-all duration-500 bg-gray-100 ${
                   isFeatured
-                    ? "lg:col-span-2"
+                    ? "col-span-1"
                     : isLast
-                    ? "lg:col-span-3"
-                    : "col-span-1"
+                    ? "lg:col-span-2"
+                    : "lg:col-span-3"
                 }`}
                 style={{ height: cardHeight }}
               >

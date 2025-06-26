@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Mail } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Linkedin, X, Mail } from "lucide-react";
+<X />;
 
 interface TeamMember {
   name: string;
@@ -15,7 +15,6 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  /* same data as before */
   {
     name: "Alex Morgan",
     title: "CEO & Founder",
@@ -84,94 +83,64 @@ const teamMembers: TeamMember[] = [
 
 const TeamSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-r from-gray-100 to-gray-300">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
-        {/* Header (Left Side) */}
-        <div className="lg:w-1/3 flex flex-col">
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              Meet Our Management.
-            </h2>
-            <p className="text-gray-500 mt-4 text-base md:text-lg">
-              We’re a passionate team focused on delivering meaningful results.
-            </p>
-          </div>
-
-          {/* CTA Button */}
+    <section className="py-20 px-4 bg-gradient-to-tr from-slate-100 via-white to-slate-200">
+      <div className="max-w-7xl mx-auto space-y-12">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 leading-snug">
+            Meet Our Leadership
+          </h2>
+          <p className="text-gray-600 mt-4 text-base md:text-lg max-w-2xl mx-auto">
+            Our business-focused team is dedicated to powering seamless,
+            innovative internet services for the modern world.
+          </p>
           <motion.a
             href="#"
-            className={cn(
-              "inline-block px-8 py-3 rounded-full font-medium",
-              "bg-gradient-to-r from-gray-600 to-gray-900",
-              "hover:from-slate-500 hover:to-slate-300 shadow-lg hover:shadow-xl transition duration-500 ease-in-out "
-            )}
+            whileHover={{ scale: 1.05 }}
+            className="mt-8 inline-block px-6 py-3 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 shadow-md transition"
           >
             Join Our Team →
           </motion.a>
         </div>
 
-        {/* Cards (Right Side) */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {teamMembers.map((member, index) => (
             <motion.div
-              key={`${member.name}-${index}`}
-              initial={{ opacity: 0, y: 20 }}
+              key={member.name}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.015 }}
-              transition={{
-                duration: 0.1,
-                delay: index * 0.03,
-                type: "tween",
-                ease: "easeOut",
-              }}
-              className={cn(
-                "group bg-gradient-to-r from-gray-100 to-gray-300 rounded-xl shadow-md overflow-hidden",
-                "hover:shadow-xl hover:border-indigo-500/50 transition-transform duration-300",
-                "flex flex-col h-full"
-              )}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 flex flex-col overflow-hidden max-w-xs mx-auto"
             >
-              <div className="relative">
+              <div className="relative w-full h-72">
                 <Image
                   src={member.image}
-                  alt={`${member.name} - ${member.title}`}
-                  width={400}
-                  height={224}
-                  className="w-full object-cover"
-                  priority
+                  alt={member.name}
+                  fill
+                  className="object-cover object-center rounded-t-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
 
-              <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
+              <div className="p-2 flex flex-col flex-grow">
+                <h3 className="text-base font-semibold text-gray-900">
                   {member.name}
                 </h3>
-                <p className="text-sm text-green-500 mb-2">{member.title}</p>
-                <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                <p className="text-xs text-blue-600 mb-1">{member.title}</p>
+                <p className="text-xs text-gray-600 mb-1 line-clamp-2">
                   {member.bio}
                 </p>
-                <p className="text-xs text-gray-500 mb-4 line-clamp-3">
+                <p className="text-[10px] text-gray-500 flex-grow line-clamp-3">
                   {member.description}
                 </p>
-                <div className="mt-auto pt-4 border-t border-gray-100 flex gap-4">
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-indigo-500 transition-colors"
-                  >
-                    <Linkedin className="w-5 h-5" />
+                <div className="mt-3 flex gap-3">
+                  <a href="#" className="text-gray-400 hover:text-blue-600">
+                    <Linkedin className="w-4 h-4" />
                   </a>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-blue-500 transition-colors"
-                  >
-                    <Twitter className="w-5 h-5" />
+                  <a href="#" className="text-gray-400 hover:text-blue-400">
+                    <X className="w-4 h-4" />
                   </a>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <Mail className="w-5 h-5" />
+                  <a href="#" className="text-gray-400 hover:text-gray-600">
+                    <Mail className="w-4 h-4" />
                   </a>
                 </div>
               </div>
